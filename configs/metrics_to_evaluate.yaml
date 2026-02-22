@@ -1,0 +1,25 @@
+metrics:
+  - name: sentinel-src-mqm-24-repr
+    path: checkpoints/sentinel-src-mqm-24-repr/last.ckpt
+    esa-scores: scores/sentinel-src-mqm-24-repr-esa.jsonl
+    mqm-scores: scores/sentinel-src-mqm-24-repr-mqm.jsonl
+
+  - name: sentinel-src-da-24-repr
+    path: checkpoints/sentinel-src-da-24-repr/last.ckpt
+    esa-scores: scores/sentinel-src-da-24-repr-esa.jsonl
+    mqm-scores: scores/sentinel-src-da-24-repr-mqm.jsonl
+
+  - name: Prosho/sentinel-src-24
+    path: null
+    esa-scores: scores/sentinel-src-24-esa.jsonl
+    mqm-scores: scores/sentinel-src-24-mqm.jsonl
+
+  - name: sentinel-src-da-wmt1923
+    path: checkpoints/sentinel-src-da-wmt1923/last.ckpt
+    esa-scores: scores/sentinel-src-da-wmt1923.jsonl
+    mqm-scores: scores/sentinel-src-da-wmt1923.jsonl
+  
+  - name: sentinel-src-da-z-norm-per-sys-no-domain-more-data
+    path: checkpoints/sentinel-src-da-z-norm-per-sys-no-domain-more-data/last.ckpt
+    esa-scores: scores/sentinel-src-da-z-norm-per-sys-no-domain-more-data.jsonl
+    mqm-scores: scores/sentinel-src-da-z-norm-per-sys-no-domain-more-data.jsonl

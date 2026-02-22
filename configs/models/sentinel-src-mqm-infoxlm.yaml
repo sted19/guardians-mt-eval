@@ -7,14 +7,14 @@ sentinel_regression_metric:
     batch_size: 8
     shuffle: True
     train_data:
-      - data/mqm/train/2020-23-mqm_z-norm-per-rater.csv
+      - data/mqm/train/20-23-mqm_z-norm_per_sys_no_domain.csv
     validation_data:
       - data/mqm/dev/wmt24_ende_mqm.csv
       - data/mqm/dev/wmt24_enes_mqm.csv
       - data/mqm/dev/wmt24_jazh_mqm.csv
     keep_embeddings_frozen: False
-    encoder_model: XLM-RoBERTa
-    pretrained_model: xlm-roberta-large
+    encoder_model: InfoXLM
+    pretrained_model: microsoft/infoxlm-large
     dropout: 0.1
     load_pretrained_weights: False
     hidden_sizes:
@@ -22,7 +22,7 @@ sentinel_regression_metric:
       - 128
     activations: Tanh
     sent_to_use: src
-    target_languages: ['<target:fr>', '<target:lv>', '<target:zh>', '<target:ja>', '<target:fi>', '<target:tr>', '<target:pl>', '<target:uk>', '<target:en>', '<target:gu>', '<target:es>', '<target:is>', '<target:ru>', '<target:cs>', '<target:ta>', '<target:hi>', '<target:et>', '<target:de>', '<target:lt>', '<target:kk>']
+    target_languages: null
 
 trainer: ../trainer.yaml
 model_checkpoint: ../model_checkpoint.yaml

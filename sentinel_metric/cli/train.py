@@ -1,5 +1,6 @@
 import json
 import logging
+import os
 import warnings
 from argparse import Namespace
 
@@ -117,6 +118,8 @@ def train_command() -> None:
     parser = read_arguments()
     cfg = parser.parse_args()
     seed_everything(cfg.seed_everything, workers=True)
+
+    os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
     trainer = initialize_trainer(cfg)
     model = initialize_model(cfg)

@@ -250,7 +250,8 @@ class RegressionMetricModel(pl.LightningModule, MTMetric):
             else SequentialSampler(train_dataset),
             batch_size=self.hparams.batch_size,
             collate_fn=lambda s: self.prepare_sample(s, stage="fit"),
-            num_workers=2 * self.trainer.num_devices,
+            # num_workers=2 * self.trainer.num_devices,
+            num_workers=0, # For InfoXLM to work
         )
 
     def val_dataloader(self) -> DataLoader:
@@ -262,7 +263,8 @@ class RegressionMetricModel(pl.LightningModule, MTMetric):
                     dataset=validation_set,
                     batch_size=self.hparams.batch_size,
                     collate_fn=lambda s: self.prepare_sample(s, stage="validate"),
-                    num_workers=2 * self.trainer.num_devices,
+                    # num_workers=2 * self.trainer.num_devices,
+                    num_workers=0, # For InfoXLM to work
                 )
             )
         return val_data

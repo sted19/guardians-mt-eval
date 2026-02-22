@@ -1,7 +1,7 @@
 class_path: pytorch_lightning.loggers.WandbLogger
 init_args:
   project: sentinel_metrics
-  name: sentinel-src-mqm-target-lang-znorm-per-rater
+  name: sentinel-src-mqm-24-repr
   save_dir: ./
   log_model: False
   offline: False
