@@ -349,6 +349,7 @@ def main():
         # copy score column to avoid modifying the original scores in the dataframe
         df["raw"] = df["score"].copy()
         df["z_norm_without_domain"] = df.groupby(["year", "lp", "system"])["raw"].transform(lambda x: (x - x.mean()) / x.std(ddof=0))
+        df["score"] = df["z_norm_without_domain"]
 
     df.to_csv(args.output_file, index=False)
     print(f"Preprocessed data saved to: {args.output_file}")

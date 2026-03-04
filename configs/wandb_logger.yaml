@@ -1,7 +1,7 @@
 class_path: pytorch_lightning.loggers.WandbLogger
 init_args:
   project: sentinel_metrics
-  name: sentinel-src-mqm-24-repr
+  name: sentinel-src-da-24-repr-with-25-data
   save_dir: ./
   log_model: False
   offline: False

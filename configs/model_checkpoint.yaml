@@ -1,6 +1,6 @@
 class_path: pytorch_lightning.callbacks.model_checkpoint.ModelCheckpoint
 init_args:
-  dirpath: checkpoints/sentinel-src-mqm-24-repr
+  dirpath: checkpoints/sentinel-src-da-24-repr-with-25-data
   filename: '{epoch}-{step}-{val_mse_loss:.5f}'
   monitor: val_mse_loss
   verbose: True
