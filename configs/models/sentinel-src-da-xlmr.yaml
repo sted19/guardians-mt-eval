@@ -7,7 +7,7 @@ sentinel_regression_metric:
     batch_size: 8
     shuffle: True
     train_data:
-      - data/da/train/1723+25-da+mlqepe+esa-znorm-per-sys-no-domain-filtered.csv
+      - data/da/train/1923-taken-from-1924-da-z-norm-per-sys-without-domain.csv
     validation_data:
       - data/mqm/dev/wmt24_ende_mqm.csv
       - data/mqm/dev/wmt24_enes_mqm.csv

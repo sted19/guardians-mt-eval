@@ -59,6 +59,32 @@ year_and_protocol_to_ref = {
 wmt24_domains = {"news", "social", "literary", "speech"}
 
 
+def read_args():
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--metrics-to-evaluate",
+        type=str,
+        default="configs/metrics_to_evaluate.yaml",
+        help="Path to the input data file.",
+    )
+    parser.add_argument(
+        "--protocol",
+        type=str,
+        default="esa",
+        help="Protocol to use for the evaluation. Allowed values: 'esa', 'mqm'.",
+    )
+    parser.add_argument(
+        "--year",
+        type=str,
+        default="wmt24",
+        help="Year of the WMT test set to use for the evaluation. Examples: 'wmt22', 'wmt23', 'wmt24'.",
+    )
+    return parser.parse_args()
+
+
+
 def load_metric_scores(path: str) -> Dict[str, Dict[str, List[Optional[float]]]] | None:
     """
     Load metric scores from a JSONL file.
@@ -106,6 +132,9 @@ def compute_metric_scores(
         batch_size: int = 16,
         gpus: int = 1
     ) -> Dict[str, List[float]]:
+
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
 
     sentinel = load_sentinel_metric(sentinel_name, sentinel_path)
 
@@ -229,32 +258,6 @@ def main(args: argparse.Namespace) -> None:
     print("DEC scores:")
     for metric_name, dec_score in metric2dec.items():
         print(f"{metric_name}: {dec_score:.4f}")
-
-
-def read_args():
-    import argparse
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--metrics-to-evaluate",
-        type=str,
-        default="configs/metrics_to_evaluate.yaml",
-        help="Path to the input data file.",
-    )
-    parser.add_argument(
-        "--protocol",
-        type=str,
-        default="esa",
-        help="Protocol to use for the evaluation. Allowed values: 'esa', 'mqm'.",
-    )
-    parser.add_argument(
-        "--year",
-        type=str,
-        default="wmt24",
-        help="Year of the WMT test set to use for the evaluation. Examples: 'wmt22', 'wmt23', 'wmt24'.",
-    )
-    return parser.parse_args()
-
 
 
 if __name__ == "__main__":

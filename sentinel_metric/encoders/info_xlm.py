@@ -87,8 +87,6 @@ class InfoXLMEncoder(nn.Module):
                 text = f"{target_token} {text}"
             processed_texts.append(text)
 
-        print("Warning: Truncation is set explicitly to 512 tokens, since max_position_embeddings of InfoXLM is 514, leading to index out of bounds errors.")
-
         tokenizer_output = self.tokenizer(
             processed_texts,
             return_tensors="pt",

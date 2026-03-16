@@ -155,8 +155,6 @@ def load_mqm_2025(raw_data_file: str, year: str, protocol: str) -> pd.DataFrame:
                     systems.append(sys_name)
                     annotators.append(gold_scorer)
                     domains.append(domain)
-
-                    breakpoint()
     
     # Ensure there are no missing values
     assert all(len(lst) == len(lps) for lst in [srcs, mts, refs, scores, systems, annotators, domains]), "All columns must have the same length."
